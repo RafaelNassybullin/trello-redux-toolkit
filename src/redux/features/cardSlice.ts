@@ -20,14 +20,14 @@ export const cardSlice = createSlice({
     addCard: (state, action: PayloadAction<ICards>) => {
       state.cards.push(action.payload)
     },
-    removeCard: (state, action: PayloadAction<ICards>) => {
+    removeCard: (state, action: PayloadAction<{ id: string }>) => {
       state.cards = _.filter(state.cards,(card: ICards) => card.id !== action.payload.id)
     },
-    changeTitle: (state, action: PayloadAction<{ cardTitleValue: string, modalTitleCardData: ICards }>) => {
-      _.map(state.cards, (card: ICards) => card.id === action.payload.modalTitleCardData.id ? card.cardTitle = action.payload.cardTitleValue : null)
+    changeTitle: (state, action: PayloadAction<{ cardTitleValue: string, cardId: string }>) => {
+      _.map(state.cards, (card: ICards) => card.id === action.payload.cardId ? card.cardTitle = action.payload.cardTitleValue : null)
     },
-    changeDescription: (state, action: PayloadAction<{ descriptionValue: string, modalDescriptionCardData: ICards }>) => {
-      _.map(state.cards, (card: ICards) => card.id === action.payload.modalDescriptionCardData.id ? card.cardDescription = action.payload.descriptionValue : null)
+    changeDescription: (state, action: PayloadAction<{ descriptionValue: string, descriptionId: string }>) => {
+      _.map(state.cards, (card: ICards) => card.id === action.payload.descriptionId ? card.cardDescription = action.payload.descriptionValue : null)
     },
     openModal: (state, action: PayloadAction<string>) => {
       state.modalCardID = action.payload

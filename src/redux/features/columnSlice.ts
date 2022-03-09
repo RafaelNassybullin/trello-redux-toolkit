@@ -15,14 +15,14 @@ export const columnSlice = createSlice({
   name: 'column',
   initialState,
   reducers: {
-    changeListTitle: (state, action: PayloadAction<{ listTitleData: IColumns, inputValue: string }>) => {
-      _.map(state.columns, (column: IColumns) => column.id === action.payload.listTitleData.id ? column.listTitle = action.payload.inputValue : null)
+    changeListTitle: (state, action: PayloadAction<{ listID: string, inputValue: string }>) => {
+      _.map(state.columns, (column: IColumns) => column.id === action.payload.listID ? column.listTitle = action.payload.inputValue : null)
     },
     addList: (state, action: PayloadAction<IColumns>) => {
       state.columns.push(action.payload)
     },
-    removeList: (state, action: PayloadAction<IColumns>) => {
-      state.columns = _.filter(state.columns,(column: IColumns) => column.id !== action.payload.id)
+    removeList: (state, action: PayloadAction<{ listID: string }>) => {
+      state.columns = _.filter(state.columns,(column: IColumns) => column.id !== action.payload.listID)
     }
   }
 })

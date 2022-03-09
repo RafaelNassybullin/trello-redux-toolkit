@@ -15,8 +15,8 @@ export const commentSlice = createSlice({
   name: 'comment',
   initialState: initialCommentState,
   reducers: {
-    removeComment: (state, action: PayloadAction<IComment>) => {
-      state.comments = _.filter(state.comments,(comment:IComment) => comment.id !== action.payload.id)
+    removeComment: (state, action: PayloadAction<{ commentID: string }>) => {
+      state.comments = _.filter(state.comments, (comment: IComment) => comment.id !== action.payload.commentID)
     },
     addComment: (state, action: PayloadAction<IComment>) => {
       state.comments.unshift(action.payload)

@@ -20,11 +20,13 @@ export const ModalComments: FC<props> = ({commentsCardProps}) => {
   const dispatch = useDispatch()
 
   const removeHandler = (comment: IComment) => {
-    dispatch(removeComment(comment))
+    const commentID = comment.id;
+    dispatch(removeComment({ commentID }))
   }
 
   const addCommenHandler = (commentValue: string, form: FormApi<FormData>) => {
     setAddCommentOpen(!addCommentOpen)
+
     if (commentValue) {
       dispatch(addComment({id: uuidv4(), cardID: commentsCardProps.id, commentText: commentValue}))
     }

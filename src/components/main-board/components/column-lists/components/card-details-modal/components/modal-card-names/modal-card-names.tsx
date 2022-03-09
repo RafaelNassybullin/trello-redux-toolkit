@@ -17,8 +17,11 @@ export const ModalCardNames: FC<props> = ({modalTitleCardData}) => {
 
   const changeCardTitle = (cardTitleValue: string) => {
     setcardTitleChangeOpen(!cardTitleChangeOpen)
+
+    const cardId:string = modalTitleCardData.id
+
     if (cardTitleValue) {
-      dispatch(changeTitle({cardTitleValue, modalTitleCardData}))
+      dispatch(changeTitle({cardTitleValue, cardId}))
     }
   }
 

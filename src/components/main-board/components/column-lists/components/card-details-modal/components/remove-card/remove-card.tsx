@@ -13,7 +13,10 @@ export const RemoveCard: FC<props> = ({cardData}) => {
   const dispatch = useDispatch()
 
   const removeCardHandler = () => {
-    dispatch(removeCard(cardData))
+
+    const id: string = cardData.id
+
+    dispatch(removeCard({ id }))
     dispatch(closeModal())
   }
 

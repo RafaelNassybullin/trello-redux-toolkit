@@ -18,8 +18,11 @@ export const ModalCardDescriptions: FC<props> = ({modalDescriptionCardData}) => 
 
   const changeCardDescription = (descriptionValue: string) => {
     setDescriptionOpen(!descriptionOpen)
+
+    const descriptionId: string = modalDescriptionCardData.id
+
     if (descriptionValue) {
-      dispatch(changeDescription({descriptionValue, modalDescriptionCardData}))
+      dispatch(changeDescription({descriptionValue, descriptionId}))
     }
   }
 
@@ -29,7 +32,7 @@ export const ModalCardDescriptions: FC<props> = ({modalDescriptionCardData}) => 
         <ModalCardDescription>
           <ModalCardDescriptionWrap>
             <ModalCardDescriptionTitle>Description</ModalCardDescriptionTitle>
-            <ModalCardNameButton onClick={handleSubmit}>
+            <ModalCardNameButton type='submit' onClick={handleSubmit}>
               <IconEdit/>
             </ModalCardNameButton>
           </ModalCardDescriptionWrap>

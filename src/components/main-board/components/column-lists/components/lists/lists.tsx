@@ -17,7 +17,9 @@ export const Lists: FC<props> = ({listsDataProps}) => {
 
   const dispatch = useDispatch()
 
-  const removeHandler = () => dispatch(removeList(listsDataProps))
+  const listID: string = listsDataProps.id
+
+  const removeHandler = () => dispatch(removeList({listID}))
 
   return (
     <>

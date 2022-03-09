@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
 `
 export default GlobalStyles
 
-export const ModalCardNameButton = styled.div`
+export const ModalCardNameButton = styled.button`
   width: 35px;
   height: 35px;
   cursor: pointer;
@@ -32,7 +32,9 @@ export const ModalCardNameButton = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-
+  outline: none;
+  border: none;
+  background: none;
   &:hover {
     background: #CCCCCC3d;
   }

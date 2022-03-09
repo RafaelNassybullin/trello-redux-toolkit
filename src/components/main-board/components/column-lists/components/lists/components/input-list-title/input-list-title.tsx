@@ -15,7 +15,8 @@ export const InputListTitle: FC<props> = ({listTitleData}) => {
   const dispatch = useDispatch();
 
   const titleChangeDispatchHandler = (inputValue: string) => {
-    if (inputValue) dispatch(changeListTitle({listTitleData, inputValue}))
+    const listID: string = listTitleData.id
+    if (inputValue) dispatch(changeListTitle({listID, inputValue}))
     setInputOpen(!inputOpen);
   }
 
